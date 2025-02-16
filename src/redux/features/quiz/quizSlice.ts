@@ -1,15 +1,24 @@
 import { quizData } from "@/Home/quizData";
 import { createSlice } from "@reduxjs/toolkit";
 
-// type
-interface Tquiz{
+
+export interface TquizData{
     question:typeof quizData,
     currentQuestionIndex:number,
     userAnswers:(string | null)[],
     quizComplete:boolean
 }
+export type Tquiz = {
+  _id: string;
+  title: string;
+  description: string;
+  questions: TquizData[];
+  createdAt: string;
+  updatedAt: string;
+};
+// type
 
-const initialState: Tquiz = {
+const initialState: TquizData = {
   question: [],
   currentQuestionIndex: 0,
   userAnswers: Array(quizData.length).fill(null),
