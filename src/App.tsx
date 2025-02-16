@@ -2,6 +2,7 @@ import Question from './Home/Question'
 import QuizSummary from './Home/QuizSummary';
 import { useAppSelector } from './redux/hook';
 import AllQuiz from "./Home/AllQuiz";
+import AddQuiz from './Home/AddQuiz';
 function App() {
 
 
@@ -12,6 +13,7 @@ function App() {
       <h1 className="text-center text-2xl md:text-3xl lg:text-4xl  my-12 font-bold">
         Hasina <span className='text-red-600'>X</span> Wazed Quiz App
       </h1>
+      <AddQuiz></AddQuiz>
       <AllQuiz></AllQuiz>
       {!quizComplete ? <Question /> : <QuizSummary />}
     </div>
