@@ -1,14 +1,18 @@
 import Question from './Home/Question'
+import QuizSummary from './Home/QuizSummary';
+import { useAppSelector } from './redux/hook';
 
 function App() {
 
 
+  const { quizComplete } = useAppSelector((state) => state.quiz);
+
   return (
     <div>
-      <h3 className='text-center text-4xl my-8 font-semibold'>Hasina x Wazed Quiz App</h3>
-     <Question></Question>
+      <h1 className="text-center text-9xl my-12">Quiz App</h1>
+      {!quizComplete ? <Question /> : <QuizSummary />}
     </div>
-  )
+  );
 }
 
 export default App

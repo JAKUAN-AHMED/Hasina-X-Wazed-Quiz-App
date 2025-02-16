@@ -16,27 +16,28 @@ const initialState: Tquiz = {
   quizComplete: false,
 };
 
-const quizSlice=createSlice({
-    name:"quiz",
-    initialState,
-    reducers:{
-      setAnswer:(state,action)=>{
-        const {questionIdx,answer}=action.payload;
-        state.userAnswers[questionIdx]=answer;
-      },
-      nextQuestion:(state)=>{
-      if( state.currentQuestionIndex<state.question.length-1 ) 
-        {
-          state.currentQuestionIndex+=1;
-        }
-      },
-      prevQuestion:(state)=>{
-      if( state.currentQuestionIndex>=1 ) 
-        {
-          state.currentQuestionIndex-=1;
-        }
+const quizSlice = createSlice({
+  name: "quiz",
+  initialState,
+  reducers: {
+    setAnswer: (state, action) => {
+      const { questionIdx, answer } = action.payload;
+      state.userAnswers[questionIdx] = answer;
+    },
+    nextQuestion: (state) => {
+      if (state.currentQuestionIndex < state.question.length - 1) {
+        state.currentQuestionIndex += 1;
       }
-    }
-})
-export const { setAnswer, nextQuestion, prevQuestion } = quizSlice.actions;
+    },
+    prevQuestion: (state) => {
+      if (state.currentQuestionIndex >= 1) {
+        state.currentQuestionIndex -= 1;
+      }
+    },
+    completeQuiz: (state) => {
+      state.quizComplete = true;
+    },
+  },
+});
+export const { setAnswer, nextQuestion, prevQuestion,completeQuiz } = quizSlice.actions;
 export default quizSlice.reducer;
