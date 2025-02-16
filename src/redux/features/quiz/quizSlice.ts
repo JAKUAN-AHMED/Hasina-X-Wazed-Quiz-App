@@ -19,6 +19,24 @@ const initialState: Tquiz = {
 const quizSlice=createSlice({
     name:"quiz",
     initialState,
-    reducers:{}
+    reducers:{
+      setAnswer:(state,action)=>{
+        const {questionIdx,answer}=action.payload;
+        state.userAnswers[questionIdx]=answer;
+      },
+      nextQuestion:(state)=>{
+      if( state.currentQuestionIndex<state.question.length-1 ) 
+        {
+          state.currentQuestionIndex+=1;
+        }
+      },
+      prevQuestion:(state)=>{
+      if( state.currentQuestionIndex>=1 ) 
+        {
+          state.currentQuestionIndex-=1;
+        }
+      }
+    }
 })
+export const { setAnswer, nextQuestion, prevQuestion } = quizSlice.actions;
 export default quizSlice.reducer;
