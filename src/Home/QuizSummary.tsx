@@ -29,7 +29,7 @@ export default function QuizSummary(){
    const correctPercentage = parseFloat(
      ((correctAnswersCount / question.length) * 100).toFixed(2)
    );
-   console.log(correctPercentage);
+   
 
    // Get performance rating and progress bar color based on the correct percentage
    const { rating, color } = getPerformance(correctPercentage);

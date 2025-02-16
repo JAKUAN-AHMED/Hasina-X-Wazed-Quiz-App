@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div>
-      <h1 className="text-center text-9xl my-12">Quiz App</h1>
+      <h1 className="text-center text-9xl my-12">Hasina X Quiz App</h1>
       {!quizComplete ? <Question /> : <QuizSummary />}
     </div>
   );
