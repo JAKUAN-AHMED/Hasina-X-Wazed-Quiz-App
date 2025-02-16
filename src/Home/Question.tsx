@@ -24,29 +24,33 @@ export default function Question() {
 
   return (
     <div className="flex justify-center">
-      <Card className="w-[500px]">
-        <CardHeader>
-          <CardTitle>{currentQuestion.question}</CardTitle>
-          <CardDescription>
-            Question : {currentQuestionIndex + 1} of {question.length}
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          {currentQuestion.options.map((option, i) => (
-            <Button
-              key={i}
-              onClick={() => handleAnswerChange(option)}
-              size={"sm"}
-              variant={option === currentAnswer ? "default" : "outline"}
-              className="w-full mt-3"
-            >
-              {option}
-            </Button>
-          ))}
+      {question.length > 0 ? (
+        <Card className="w-[500px]">
+          <CardHeader>
+            <CardTitle>{currentQuestion?.question}</CardTitle>
+            <CardDescription>
+              Question : {currentQuestionIndex + 1} of {question.length}
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            {currentQuestion.options.map((option, i) => (
+              <Button
+                key={i}
+                onClick={() => handleAnswerChange(option)}
+                size={"sm"}
+                variant={option === currentAnswer ? "default" : "outline"}
+                className="w-full mt-3"
+              >
+                {option}
+              </Button>
+            ))}
 
-          <QuizControl></QuizControl>
-        </CardContent>
-      </Card>
+            <QuizControl></QuizControl>
+          </CardContent>
+        </Card>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
